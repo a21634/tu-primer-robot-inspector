@@ -1,0 +1,10 @@
+INFO: Servidor iniciado correctamente
+INFO: Conexion con la base de datos establecida
+ERROR: Fallo al procesar la solicitud 1042
+INFO: Usuario de prueba inicio sesion
+CRITICAL: Disco del servidor casi lleno
+ERROR: Tiempo de espera agotado al conectar con la base de datos
+INFO: Copia de seguridad completada
+CRITICAL: Servicio principal detenido inesperadamente
+ERROR: No se pudo completar la transaccion 2081
+INFO: Servicio de monitoreo funcionando correctamente
