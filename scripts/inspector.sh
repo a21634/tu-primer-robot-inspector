@@ -78,7 +78,7 @@ TOTAL_ALERTAS="$(wc -l < "$ARCHIVO_TEMPORAL")"
     printf '%s\n' '=============================================='
     printf 'Fecha de ejecucion: %s\n' "$FECHA_EJECUCION"
     printf 'Usuario que genero el reporte: %s\n' "$USUARIO"
-    printf 'Archivo analizado: %s\n' "$LOG_FILE"
+    printf 'Archivo analizado: %s\n' 'logs/servidor.log'
     printf 'Total de alertas encontradas: %s\n' "$TOTAL_ALERTAS"
     printf '%s\n' '----------------------------------------------'
     printf '%s\n' 'DETALLE DE ALERTAS'
