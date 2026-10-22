@@ -1,22 +1,20 @@
-Tu Primer Robot Inspector
-
 1. Descripción del proyecto
 
-Tu Primer Robot Inspector es un proyecto de automatización desarrollado con Bash que analiza archivos de registro (logs) de un servidor para identificar errores (ERROR) y alertas críticas (CRITICAL).
+Tu Primer Robot Inspector es un proyecto de automatización desarrollado con Bash que analiza archivos de registro (logs) para identificar errores (ERROR) y alertas críticas (CRITICAL).
 
-El script filtra los registros relevantes, cuenta las alertas encontradas y genera un reporte con la fecha y hora de ejecución, el usuario que ejecutó el programa, el archivo analizado y el detalle de cada alerta.
+El script filtra los registros relevantes, cuenta las alertas y genera un reporte con la fecha y hora de ejecución, el usuario que ejecutó el programa, el archivo analizado y el detalle de los hallazgos.
 
-Este proyecto demuestra el uso de comandos de Linux, variables, filtros de texto, redirección de salida y automatización básica para la supervisión de sistemas.
+Este proyecto aplica conceptos básicos de scripting, comandos de Linux, redirección de salida, automatización y control de versiones.
 
 2. Objetivos
 
-Automatizar la identificación de errores y alertas críticas en archivos de registro.
+Automatizar la identificación de errores y alertas críticas.
 
 Practicar el uso de Bash y herramientas de línea de comandos.
 
-Generar un reporte organizado que facilite la revisión de incidentes.
+Generar un reporte organizado para facilitar la revisión de incidentes.
 
-Comprender cómo la automatización de tareas repetitivas contribuye a las prácticas de DevOps y AIOps.
+Comprender la relación entre la automatización, DevOps y AIOps.
 
 3. Estructura del proyecto
 
@@ -34,17 +32,17 @@ Tu_Primer_Robot_Inspector/
 ├── .gitignore
 └── README.md
 
-logs/servidor.log: contiene los registros de prueba que serán analizados.
+logs/servidor.log: contiene los registros de prueba.
 
 scripts/inspector.sh: ejecuta el análisis y genera el reporte.
 
 reportes/alerta_de_hoy.txt: contiene el resultado de la inspección.
 
-evidencias/: almacena las capturas que documentan la ejecución, el reporte y el repositorio.
+evidencias/: almacena capturas de la ejecución, el reporte y el repositorio.
 
-.gitignore: define archivos que Git debe ignorar.
+.gitignore: especifica los archivos que Git debe ignorar.
 
-README.md: documenta el propósito, los requisitos y el uso del proyecto.
+README.md: documenta el proyecto y su uso.
 
 4. Requisitos
 
@@ -54,7 +52,7 @@ Git Bash o un entorno compatible con Bash.
 
 Los comandos grep, date, whoami, wc, mkdir, mktemp y sed.
 
-El archivo de registro ubicado en logs/servidor.log.
+El archivo de registro logs/servidor.log.
 
 El proyecto se desarrolló y probó en Windows utilizando Git Bash.
 
@@ -64,15 +62,13 @@ Abrir Git Bash.
 
 Acceder a la carpeta raíz del proyecto.
 
-Ejecutar el siguiente comando:
+Ejecutar:
 
 bash scripts/inspector.sh
 
 Si la ejecución termina correctamente, se mostrará un mensaje de confirmación, el número de alertas encontradas y la ruta del reporte generado.
 
-El reporte se guarda en:
-
-reportes/alerta_de_hoy.txt
+El reporte se guarda en reportes/alerta_de_hoy.txt.
 
 El script utiliza la redirección > para generar el reporte desde cero en cada ejecución, evitando que se acumulen resultados anteriores.
 
@@ -92,7 +88,7 @@ Obtiene la fecha y hora de ejecución.
 
 grep
 
-Busca los registros que coinciden con los patrones definidos.
+Busca registros que coinciden con los patrones definidos.
 
 wc -l
 
@@ -128,9 +124,7 @@ Permite controlar las versiones del proyecto.
 
 7. Resultados de las pruebas
 
-El archivo de registro contiene diez líneas de prueba, distribuidas entre mensajes informativos, errores y alertas críticas.
-
-Los resultados obtenidos fueron:
+El archivo de registro contiene diez líneas de prueba, con mensajes informativos, errores y alertas críticas.
 
 Verificación
 
@@ -160,23 +154,23 @@ Comprobación de sintaxis con bash -n
 
 Correcta
 
-Las comprobaciones independientes con grep confirmaron tres errores, dos alertas críticas y cinco alertas en total.
+Las comprobaciones con grep confirmaron tres errores, dos alertas críticas y cinco alertas en total.
 
 8. Preguntas de análisis
 
 ¿Cómo se podría automatizar la ejecución diaria?
 
-En Windows, se puede utilizar el Programador de tareas para ejecutar el script diariamente. La tarea debe configurarse con la ruta del ejecutable de Bash y el script correspondiente. También se recomienda conservar reportes históricos para analizar la evolución de los incidentes.
+En Windows se puede utilizar el Programador de tareas para ejecutar el script diariamente mediante Bash. También convendría conservar reportes históricos para analizar la evolución de los incidentes.
 
 ¿Qué ocurriría si el archivo de registro tuviera un millón de líneas?
 
-El script tendría que revisar una cantidad considerablemente mayor de texto. grep está diseñado para buscar patrones en archivos grandes, pero el tiempo de ejecución dependería del tamaño real del archivo, el equipo y las condiciones del sistema. Para un entorno de producción convendría evaluar el rendimiento, evitar procesamientos innecesarios y establecer políticas de rotación y conservación de logs.
+El script tendría que revisar una cantidad considerablemente mayor de texto. grep está diseñado para buscar patrones en archivos grandes, pero el tiempo de ejecución dependería del tamaño del archivo, el equipo y las condiciones del sistema. En un entorno de producción convendría evaluar el rendimiento y aplicar políticas de rotación y conservación de logs.
 
 ¿Cómo podría ayudar la inteligencia artificial a identificar la causa raíz de un incidente?
 
-Un sistema de AIOps podría correlacionar los errores con marcas de tiempo, métricas del servidor, cambios recientes y otros registros. Los modelos de análisis podrían detectar patrones anómalos y sugerir causas probables. Sin embargo, las sugerencias deberían contrastarse con evidencias técnicas antes de confirmar una causa raíz.
+Un sistema de AIOps podría correlacionar errores con marcas de tiempo, métricas del servidor, cambios recientes y otros registros. Los modelos de análisis podrían detectar patrones anómalos y sugerir causas probables. Las sugerencias deberían contrastarse con evidencias técnicas antes de confirmar una causa raíz.
 
-El robot de este proyecto utiliza reglas explícitas para filtrar alertas; por sí solo, no emplea modelos de inteligencia artificial ni determina automáticamente la causa raíz.
+Este robot utiliza reglas explícitas para filtrar alertas. Por sí solo, no emplea modelos de inteligencia artificial ni determina automáticamente la causa raíz.
 
 ¿Cómo se deberían proteger los archivos de registro?
 
@@ -186,7 +180,7 @@ Se recomienda restringir los permisos de lectura y escritura, evitar almacenar c
 
 La automatización de la inspección de logs reduce el trabajo manual necesario para localizar errores y permite identificar señales que requieren atención.
 
-En DevOps, este tipo de herramienta puede integrarse en procesos de supervisión y mantenimiento. En AIOps, puede servir como una etapa inicial de preparación de datos para sistemas más avanzados de detección de anomalías, correlación de eventos y análisis de incidentes.
+En DevOps, una herramienta de este tipo puede integrarse en procesos de supervisión y mantenimiento. En AIOps, puede servir como una etapa inicial de preparación de datos para sistemas más avanzados de detección de anomalías, correlación de eventos y análisis de incidentes.
 
 La herramienta actual constituye una base educativa: identifica patrones definidos previamente, cuenta alertas y genera un reporte. No reemplaza una plataforma de monitoreo ni realiza análisis predictivo.
 
